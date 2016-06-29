@@ -1,0 +1,13 @@
+<%= simple_form_for @task, :html => { :class => 'form-vertical' } do |f| %>
+  <%= f.association :job, prompt: 'Selecione' %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <div class="form-inline form-inline-custom">
+  <%= f.input :status, as: :check_boxes, collection: [['Ativo', true], ['Inativo', false]] %>
+  </div>
+
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_tasks_path, :class => 'btn btn-default' %>
+<% end %>

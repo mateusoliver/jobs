@@ -1,0 +1,12 @@
+<%= simple_form_for [:admin, @job], :html => { :class => 'form-vertical' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :start_at %>
+  <%= f.input :finish_at %>
+  <div class="form-inline form-inline-custom">
+  <%= f.input :status, as: :check_boxes %>
+  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_jobs_path, :class => 'btn btn-default' %>
+<% end %>
